@@ -9,24 +9,28 @@
     <title>Mine Sweeper</title>
 </head>
 
-<body onload="initGame(4)"  >
-    <div class = "box">
-    <div class="header">
-        <h1>Mine Sweeper</h1>
+<body onload="initGame(4)">
+    <div class="box">
+        <div class="header">
+            <h1>Mine Sweeper</h1>
+        </div>
+        <div class='btn'>
+            <button onclick="initGame(4) ">Beginner (4*4)</button>
+            <button onclick="initGame(8)">Medium (8*8)</button>
+            <button onclick="initGame(12)">Expert! (12*12)</button>
+        </div>
+        <div class='timer'></div>
+        <h2></h2>
+        <h3 onclick="initGame(4)"></h3>
+        <table>
+            <tbody class="board" oncontextmenu="return false">
+            </tbody>
+        </table>
     </div>
-    <div class='btn'>
-        <button onclick="initGame(4)">Beginner (4*4)</button>
-        <button onclick="initGame(8)">Medium (8*8)</button>
-        <button onclick="initGame(12)">Expert! (12*12)</button>
-    </div>
-    <div class='timer'></div>
-    <table>
-        <tbody class="board" oncontextmenu="return false">
-        </tbody>
-    </table>
-</div>
+    <div class="hints" onclick="clickedLamp()"></div>
     <script src="js/game.js"></script>
     <script src="js/util.js"></script>
+    <footer> Created by: Guy Peer</footer>
 </body>
 
 </html>

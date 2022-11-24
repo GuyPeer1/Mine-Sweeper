@@ -20,12 +20,13 @@ function renderBoard(board) {
             const cell = board[i][j]
             var className = 'cell'
             var negs = cell.minesAroundCount
+            if (negs === 0 && !cell.isShown && !cell.isMine) className = 'emptyCell'
             strHTML += `\t<td class="${className}"  
             oncontextmenu="cellMarked(${i}, ${j})"}
                             onclick="cellClicked(this, ${i}, ${j})"> 
                          \n`
             if (cell.isMine && !cell.isShown && cell.isMarked) strHTML += MINE
-            else if (negs >= 0 && !cell.isShown) strHTML += negs
+            else if (negs > 0 && !cell.isShown) strHTML += negs
             else if (!cell.isMarked) strHTML += FLAG
             strHTML += '\t</td>\n'
         }
@@ -75,3 +76,21 @@ function showTimer() {
         timer.innerText = `\n ${secs}:${ms}`
     }, 100)
 }
+
+function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+  
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+  
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
+  }

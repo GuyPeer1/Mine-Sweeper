@@ -5,11 +5,12 @@
     text-align: center;
 }
 
-.selected {
-    background-color: rgb(230, 173, 173);
+.emptyCell {
+    background-color: lightblue;
     height: 40px;
     width: 33px;
     text-align: center;
+    filter: brightness(85%);
 }
 
 table {
@@ -34,6 +35,7 @@ margin-bottom: 20px;
 
 button:hover {
     background-color: rgb(254, 79, 13);
+    cursor: pointer;
 }
 
 h1 {
@@ -46,3 +48,24 @@ h1 {
     font-weight: bold;
 }
 
+h2 {
+    font-style: oblique;
+}
+
+.hints {
+    margin-top: 20px;
+    text-indent: 100px;
+    letter-spacing: 10px;
+    display:flex;
+    display:flex;    
+}
+
+h3 {
+    text-indent: 100px;
+}
+
+footer {
+    font-style: oblique;
+    padding: 20px;
+    font-size:xx-large;
+}
