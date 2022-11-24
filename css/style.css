@@ -5,6 +5,13 @@
     text-align: center;
 }
 
+.selected {
+    background-color: rgb(230, 173, 173);
+    height: 40px;
+    width: 33px;
+    text-align: center;
+}
+
 table {
     border-spacing: 1px;
     border-collapse: separate;

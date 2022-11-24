@@ -18,7 +18,6 @@ function renderBoard(board) {
         strHTML += `<tr>\n`
         for (var j = 0; j < board[0].length; j++) {
             const cell = board[i][j]
-
             var className = 'cell'
             var negs = cell.minesAroundCount
             strHTML += `\t<td class="${className}"  
@@ -35,6 +34,7 @@ function renderBoard(board) {
     var elBoard = document.querySelector('.board')
     elBoard.innerHTML = strHTML
 }
+
 
 function countNegs(cellI, cellJ, board) {
     var negsMineCount = 0;

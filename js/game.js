@@ -31,7 +31,7 @@ function addRndMine(board) {
     var minesCount
     if (board.length === 4) minesCount = 2
     if (board.length === 8) minesCount = 12
-    if (board.length === 12) minesCount = 32
+    if (board.length === 12) minesCount = 12 ///****TEMP TEMP TEMP ****///
 
     for (var i = 0; i < minesCount; i++) {
         var rndI = getRandomInt(0, board.length - 1)
@@ -50,7 +50,8 @@ function setMinesNegsCount(board) {
     }
 }
 
-function cellClicked(currCell, i, j) {
+function cellClicked(elCell, i, j) {
+    //elCell.classList.add('selected')
     currCell = gBoard[i][j]
     if (!gGame.isOn || !currCell.isMarked) return
     if (!gtimerInterval) showTimer()
@@ -61,7 +62,7 @@ function cellClicked(currCell, i, j) {
     }
     if (currCell.minesAroundCount === 0 && !currCell.isMine) {
         //Cell without neighbors
-        expandShown(gBoard, currCell, i, j)
+        expandShown(gBoard, i, j)
     }
     if (currCell.isMine) {
         //LOST: clicked on a mine
@@ -110,15 +111,18 @@ function checkGameOver() {
 }
 
 
-function expandShown(board, elCell, i, j) {
+function expandShown(board, i, j) {
+
     for (var iIdx = i - 1; iIdx <= i + 1; iIdx++) {
         if (iIdx < 0 || iIdx >= board.length) continue;
         for (var jIdx = j - 1; jIdx <= j + 1; jIdx++) {
             if (jIdx < 0 || jIdx >= board[i].length) continue;
             var currCell = board[iIdx][jIdx]
             currCell.isShown = false
+            if (currCell.minesAroundCount === 0 && !currCell.isMine) {
+            expandShown(board,iIdx,jIdx)
+            }
         }
     }
     renderBoard(board)
 }
-
