@@ -1,2 +1,2 @@
 # Mine-Sweeper
-Delivery1 - Wednesday 2100
+Delivery2 - Thursday 2100
